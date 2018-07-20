@@ -1,0 +1,16 @@
+{
+  "name": "videochat-b",
+  "version": "1.0.0",
+  "description": "UncodeIT VideoChat Platform",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^1.30.0",
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}

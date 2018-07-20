@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Plataforma de Video Chat</title>
+	<link rel="stylesheet" href="css/bulma.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
+	<style>
+	
+	.no-js #loader { display: none;  }
+.js #loader { display: block; position: absolute; left: 100px; top: 0; }
+.se-pre-con {
+
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(img/gif/loader-64x/Preloader_3.gif) center no-repeat #fff;
+}
+
+	
+	</style>
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')</script>
+	<script src="js/adapter-latest.js"></script>
+	<!-- XIRSYS -->
+    <script src="lib/xirsys-media.js"></script>
+    <script src="lib/xirsys-ice.js"></script>
+    <script src="lib/xirsys-signal.js"></script>
+    <script src="lib/xirsys-p2p.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/resource-a.js"></script>
+	<script defer src="js/all.js"></script>
+</head>
+
+<body>
+
+<div class="se-pre-con"></div>
+
+	<section class="section">
+
+	
+		<div class="tile is-ancestor">
+
+			<div class="tile is-vertical">
+				
+				<div class="tile is-parent">
+					<article class="tile is-child box">
+					
+						<div class="columns">
+							<div class="column is-2">
+								<p class="buttons">
+
+									<a class="button" id="hangup">
+										<span class="icon is-small">
+											<img src="img/svg/phone-hangup.svg" alt="Colgar">
+										</span>
+									</a>
+									<a class="button cam-action" do="mute">
+										<span class="icon is-small">
+											<img id="cam-status" src="img/svg/camcorder-off.svg" alt="Silenciar Camara">
+										</span>
+									</a>
+									<a class="button mic-action" do="mute">
+										<span class="icon is-small">
+											<img src="img/svg/microphone-off.svg" alt="Silenciar Microfono">
+										</span>
+									</a>
+									<a class="button" id="settings">
+										<span class="icon is-small">
+											<img src="img/svg/settings.svg" alt="Configuraciones">
+										</span>
+									</a>
+								</p>
+							</div>
+							
+							<div class="column is-7"></div>
+							
+							
+							<div class="column is-2">
+								<p class="buttons is-right">
+									<a class="button change-timer" do="play">
+										<span class="icon is-small">
+											<img id="timer-status" src="img/svg/play.svg" alt="pausar tiempo">
+										</span>
+									</a>
+									<a class="button" id="stop-timer">
+										<span class="icon is-small">
+											<img src="img/svg/stop.svg" alt="Finalizar clase">
+										</span>
+									</a>
+								</p>
+							</div>
+							
+							<div class="column is-1">
+								<span class="tag is-info is-medium" id="info-timer">00:00:00</span>
+							</div>
+						</div>
+
+
+					</article>	
+				</div>
+			
+				<div class="tile">
+					<div class="tile is-2 is-vertical is-parent">
+						
+						<div class="tile is-child box">
+							<video id="local-video" class="" autoplay muted playsinline></video>
+							<figure class="image is-256x256">
+								<img id="local-img" src="img/png/no-cam.png" style="display:none;">
+							</figure>
+						</div>
+						
+						<div class="tile is-child box">
+							<input class="input" id="callID" type="text" placeholder="Text input">
+								
+								<div class="input-group-btn">
+									<span id="isTURN" class="input-group-addon">
+										<input id="isTURNcb" type="checkbox" aria-label="...">
+										<label for="isTURN"> Force TURN</label>
+									</span>
+								</div>
+							
+						</div>
+					</div>
+					
+					<div class="tile is-parent">
+						<div class="tile is-child box">
+							<video id="remote-video" class=""  autoplay playsinline></video>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</section>
+
+<div class="modal">
+  <div class="modal-background"></div>
+  <div class="modal-card">
+    <header class="modal-card-head">
+      <p class="modal-card-title">Configuraciones</p>
+      <button class="delete" aria-label="close"></button>
+    </header>
+    <section class="modal-card-body">
+	
+		<div class="field">
+		  <div class="control has-icons-left">
+			<div class="select is-primary">
+			  <select id="cam-list">
+			  </select>
+			</div>
+			<div class="icon is-small is-left">
+			  <img id="" src="img/svg/camcorder.svg" alt="Seleccionar Camara">
+			</div>
+		  </div>
+		</div>
+		
+		<div class="field">
+		  <div class="control has-icons-left">
+			<div class="select is-info">
+			  <select id="mic-list">
+			  </select>
+			</div>
+			<div class="icon is-small is-left">
+			  <img id="" src="img/svg/microphone.svg" alt="Seleccionar Microfono">
+			</div>
+		  </div>
+		</div>
+		
+		<div class="field">
+		  <div class="control has-icons-left">
+			<div class="select is-success">
+			  <select id="speaker-list">
+			  </select>
+			</div>
+			<div class="icon is-small is-left">
+			  <img id="" src="img/svg/volume-high.svg" alt="Seleccionar Altavoz">
+			</div>
+		  </div>
+		</div>
+		
+		
+    </section>
+    <footer class="modal-card-foot">
+      <button class="button close-modal is-info">Listo</button>
+      <button class="button close-modal">Cancelar</button>
+    </footer>
+  </div>
+</div>
+	
+</body>
+</html>

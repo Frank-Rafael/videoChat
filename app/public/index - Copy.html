@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <title>Select audio and video sources</title>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!--<link rel="stylesheet" href="css/main.css">-->
+<!--
+    <style>
+        div.select {
+            display: inline-block;
+            margin: 0 0 1em 0;
+        }
+        p.small {
+            font-size: 0.7em;
+        }
+        label {
+            width: 12em;
+            display: inline-block;
+        }
+    </style>
+-->
+<style>
+	video {
+	  background: #222;
+	  margin: 0 0 20px 0;
+	  width: 100%;
+	}
+</style>
+</head>
+
+<body>
+
+<div class="jumbotron text-center">
+	<h1>Video Platform Beta</h1>
+	<input id="callID" type="text" class="form-control" aria-label="..." readonly>
+</div>
+
+<div class="container">
+	<div class="row">
+	
+		<div class="col-sm-6">
+		
+		<div class="col-sm-12 col-md-12 col-lg-12"> 
+			<div class="input-group"> 
+				<div class="input-group-btn"> 
+					<button type="button" class="btn btn-default">Entrada de Audio</button> 
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> 
+					<ul class="dropdown-menu" id="audioSource"> 
+						<!--<li><a href="#">HTML</a></li>-->
+					</ul> 
+				</div> 
+				<input class="form-control" aria-label="Text input with segmented button dropdown" readonly> 
+			</div> 
+		</div>
+
+		<div class="col-sm-12 col-md-12 col-lg-12"> 
+			<div class="input-group"> 
+				<div class="input-group-btn"> 
+					<button type="button" class="btn btn-default">Entrada de Video</button> 
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> 
+					<ul class="dropdown-menu" id="videoSource"> 
+						<!--<li><a href="#">HTML</a></li>-->
+					</ul> 
+				</div> 
+				<input class="form-control" aria-label="Text input with segmented button dropdown" readonly> 
+			</div> 
+		</div>
+		
+		<div class="col-sm-12 col-md-12 col-lg-12"> 
+			<div class="input-group"> 
+				<div class="input-group-btn"> 
+					<button type="button" class="btn btn-default">Salida de Audio</button> 
+					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span> <span class="sr-only">Toggle Dropdown</span> </button> 
+					<ul class="dropdown-menu" id="audioOutput"> 
+						<!--<li><a href="#">HTML</a></li>-->
+					</ul> 
+				</div> 
+				<input class="form-control" aria-label="Text input with segmented button dropdown" readonly> 
+			</div> 
+		</div>			
+			<!--
+			<div class="select">
+				<label for="audioSource">Audio input source: </label><select id="audioSource"></select>
+			</div>
+
+			<div class="select">
+				<label for="audioOutput">Audio output destination: </label><select id="audioOutput"></select>
+			</div>
+
+			<div class="select">
+				<label for="videoSource">Video source: </label><select id="videoSource"></select>
+			</div>-->
+			<div class="col-sm-12 col-md-12 col-lg-12"> 
+				<video id="local-video" playsinline autoplay></video>
+			</div>		
+			
+		</div>
+		
+		<div class="col-sm-6">
+		  <h2>Video Alumno</h2>
+			<div class="col-sm-12 col-md-12 col-lg-12"> 
+				<video id="remote-video" autoplay playsinline></video>
+			</div>	
+		</div>
+		
+	</div>
+</div>
+
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" 
+integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" 
+crossorigin="anonymous"></script>
+<!-- XIRSYS -->
+<script src="../lib/xirsys-media.js"></script>
+<script src="../lib/xirsys-ice.js"></script>
+<script src="../lib/xirsys-signal.js"></script>
+<script src="../lib/xirsys-p2p.js"></script>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>
